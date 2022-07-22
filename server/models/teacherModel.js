@@ -2,9 +2,10 @@ const mongoose = require('mongoose')
 const teacherSchema = mongoose.Schema(
     {
         name : {
-            type : mongoose.Schema.Types.ObjectId,
+            type : String,
             required : true,
-            ref : 'Teacher'
+            // ref : 'Teacher'
+            // Teacher validation failed: name: Cast to ObjectId failed for value "Adharsh" (type string) at path "name" because of "BSONTypeError"
         },
 
         email : {

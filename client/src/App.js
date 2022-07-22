@@ -5,10 +5,10 @@ import Register from './pages/student/Register'
 import Login from './pages/student/Login'
 import TeacherRegister from './pages/teacher/TeacherRegister'
 import TeacherLogin from './pages/teacher/TeacherLogin'
+import Note from './pages/teacher/Note'
 
 function App() {
   return (
-    
      <BrowserRouter>
        <Routes>
         <Route path="/" element={<Home />} />
@@ -16,9 +16,9 @@ function App() {
         <Route path="/sudentLogin" element={ <Login /> } />
         <Route path="/teacherRegister" element={ <TeacherRegister />} />
         <Route path="/teacherLogin" element={ <TeacherLogin /> } />
+        <Route path="/teacherNotes" element ={< Note/>} />
       </Routes>
-     </BrowserRouter>
-    
+     </BrowserRouter> 
   );
 }
 

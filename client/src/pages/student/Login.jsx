@@ -1,11 +1,13 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Navbar from '../../components/Navbar'
 
 
 function Login() {
   return (
     <>
+    <Navbar />
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
