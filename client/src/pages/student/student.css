@@ -22,6 +22,7 @@
     flex: 1;
 }
 
+
 .reg-right{
     flex: 1;
     display: flex;
@@ -30,9 +31,21 @@
     text-align: start;
 }
 
-.reg-left img{
-    height: 20rem;
-    width: 30rem;
+.reg-left .download-img{
+    height: 22rem;
+    width: 24rem;
+    margin-bottom: 3rem;
+}
+
+.reg-left .reg-img{
+    height: 40rem;
+    width: 25rem;
+    margin-bottom: 3rem;
+}
+
+.reg-left .login-img{
+    height: 22rem;
+    width: 34rem;
     margin-bottom: 3rem;
 }
 

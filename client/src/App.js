@@ -6,6 +6,7 @@ import Login from './pages/student/Login'
 import TeacherRegister from './pages/teacher/TeacherRegister'
 import TeacherLogin from './pages/teacher/TeacherLogin'
 import Note from './pages/teacher/Note'
+import Download from './pages/student/Download'
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/studentRegister" element={ <Register />} />
-        <Route path="/sudentLogin" element={ <Login /> } />
+        <Route path="/studentLogin" element={ <Login /> } />
         <Route path="/teacherRegister" element={ <TeacherRegister />} />
         <Route path="/teacherLogin" element={ <TeacherLogin /> } />
-        <Route path="/teacherNotes" element ={< Note/>} />
+        <Route path="/noteUpload" element ={< Note />} />
+        <Route path="/noteDownload" element= {<Download />} />
       </Routes>
      </BrowserRouter> 
   );

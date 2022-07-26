@@ -9,20 +9,20 @@ import Navbar from '../../components/Navbar'
 function TeacherLogin() {
 
   
-  const Registration = (e) => {
-    e.preventDefault();
-    console.log(email)
-    console.log(password)
+  // const Registration = (e) => {
+  //   e.preventDefault();
+  //   console.log(email)
+  //   console.log(password)
 
-    axios.post("http://localhost:5000/api/teachers/login",{
-      email,
-      password
-    }).then((response)=>{
-      let res = response.data
-      console.log(res)
-    })
+  //   axios.post("http://localhost:5000/api/teachers/login",{
+  //     email,
+  //     password
+  //   }).then((response)=>{
+  //     let res = response.data
+  //     console.log(res)
+  //   })
 
-  }
+  // }
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -34,7 +34,7 @@ function TeacherLogin() {
     <div className="reg-body">
         <div className="reg-left">
           <h3>Login</h3>
-          <img src="https://img.freepik.com/premium-vector/woman-sitting-table-reading-document_1325-2489.jpg?w=1060" alt="" />
+          <img src="https://img.freepik.com/premium-vector/woman-sitting-table-reading-document_1325-2489.jpg?w=1060" alt="" className='login-img' />
         </div>  
 
         <div className="reg-right">
@@ -46,14 +46,14 @@ function TeacherLogin() {
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
-
+          
           <Form.Group className="mb-3" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Password" value={password} onChange={(e)=>{setPassword(e.target.value)}} />
           </Form.Group>
-          <button type="submit" onClick={Registration}>Login</button>
+          <Link to="/noteUpload"><button type="submit">Login</button></Link>
         </Form>
-        <div>Create an Account <Link to="/teacherLogin"> Register here</Link></div>
+        <div>Create an Account <Link to="/teacherRegister"> Register here</Link></div>
         </div>
     </div>
   </div>

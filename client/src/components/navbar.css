@@ -26,11 +26,21 @@
     text-decoration:none ;
     font-size: 15px;
     font-weight: 600;
+    transition: .2s ease-out;
+}
+
+.navs ul li a:hover{
+    color: #ff745c;
+    font-size: 17px;
+}
+
+.nav-logo a{
+    text-decoration: none; 
 }
 
 .nav-logo span{
     color: #ff745c;
-    transition: .2s ease-in;
+    transition: .2s ease-in-out;
 }
 
 .nav-logo p{
@@ -38,6 +48,7 @@
     background-color: black;
     border-radius: 2rem;
     padding: .6rem;
+    transition: .2s ease-in-out;
 }
 
 .nav-logo:hover span{
@@ -47,5 +58,8 @@
 
 .nav-logo:hover{
     cursor: pointer;
+}
+
+.nav-logo p:hover{
     color: #ff745c;
 }

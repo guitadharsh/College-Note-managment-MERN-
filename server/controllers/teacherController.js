@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken")
 const bcrypt = require("bcryptjs")
 const asyncHandler = require('express-async-handler')
 const teacherReg = require('../models/teacherModel')
+const notesUpload = require('../models/teacherUpload')
 
 
 // @desc Register new user
@@ -90,4 +91,21 @@ const getMe = asyncHandler(async (req, res) => {
     })
 })
 
-module.exports = { regTeacher, loginTeacher, getMe };
+const noteUpload = asyncHandler ( async(req,res) => {
+    const { semester, subject, modules, file } = req.body
+
+    const Notes = await notesUpload.create({
+        semester,
+        subject,
+        modules,
+        file
+    })
+
+    if(Notes){
+        res.status(201, "Notes Uploaded")
+    }
+})
+
+module.exports = { regTeacher, loginTeacher, getMe, noteUpload };
+
+

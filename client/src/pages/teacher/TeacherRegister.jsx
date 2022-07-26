@@ -3,8 +3,8 @@ import Form from 'react-bootstrap/Form';
 import {useState} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import './teacher.css'
 import Navbar from '../../components/Navbar'
+import './teacher.css'
 
 
 function TeacherRegister() {
@@ -36,7 +36,7 @@ function TeacherRegister() {
       <div className="reg-body">
         <div className="reg-left">
           <h3>Register</h3>
-          <img src="https://img.freepik.com/free-vector/student-with-laptop-studying-online-course_74855-5293.jpg?t=st=1658470034~exp=1658470634~hmac=6981b44a46db0331ebee581fc9ec40cd18e341ec3b46cc2f83d5171b2750e7de&w=1380" alt="" />
+          <img src="https://img.freepik.com/free-vector/student-with-laptop-studying-online-course_74855-5293.jpg?t=st=1658470034~exp=1658470634~hmac=6981b44a46db0331ebee581fc9ec40cd18e341ec3b46cc2f83d5171b2750e7de&w=1380" alt="" className='reg-img'/>
         </div>
 
           <div className="reg-right">
