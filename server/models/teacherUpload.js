@@ -17,8 +17,8 @@ const uploadSchema = mongoose.Schema(
       },
 
       file : {
-        type : Buffer,
-        required : true
+        data : Buffer,
+        contentType : String
       }
 
 })

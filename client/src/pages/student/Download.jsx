@@ -2,26 +2,26 @@ import React from 'react'
 import Form from 'react-bootstrap/Form';
 import {useState} from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
 import './student.css'
 import Navbar from '../../components/Navbar'
 // import Form from 'react-bootstrap/Form';
 
 function Note() {
 
-
   const Download = (e) => {
     e.preventDefault();
+    console.log(semester, subject, modules)
 
     axios.post("http://localhost:5000/api/students/noteDownload",{
       semester,
       subject,
       modules
-    }).then((response)=>{
+    }).then(({response})=>{
+      
+
       let res = response.data
       console.log(res)
     })
-
   }
 
   const [semester, setSemester] = useState('')
@@ -40,7 +40,7 @@ function Note() {
 
         <div className="reg-right">
             <Form>
-              <Form.Select aria-label="Default select example" className='mb-3' value={semester} onChane={(e)=>{setSemester(e.target.value)}}>
+              <Form.Select aria-label="Default select example" className='mb-3' value={semester} onChange={(e)=>{setSemester(e.target.value)}}>
                 <option>Choose Semester</option>
                 <option value="1">1 sem</option>
                 <option value="2">2 sem</option>
@@ -61,7 +61,7 @@ function Note() {
                <Form.Control type="text" placeholder="Module" value={modules} onChange={(e)=>{setModules(e.target.value)}} />
              </Form.Group>
 
-          <button type="submit" onClick={Download}>Upload Notes</button>
+          <button type="submit" onClick={Download}>Download Notes</button>
         </Form>
         </div>
     </div>

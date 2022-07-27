@@ -21,8 +21,9 @@ function Note() {
       subject,
       modules,
       file
-    }).then((response)=>{
-      console.log(response.data)
+    }).then(()=>{
+      alert("Notes Uploaded Succesfully")
+      // console.log(response.data)
       // setResponse(response)
     
     })
@@ -45,7 +46,7 @@ function Note() {
 
         <div className="reg-right">
             <Form>
-              <Form.Select aria-label="Default select example" className='mb-3' value={semester} onChange={(e)=>{setSemester(e.target.value)}}>
+              <Form.Select enctype='multipart/form-data' aria-label="Default select example" className='mb-3' value={semester} onChange={(e)=>{setSemester(e.target.value)}}>
                 <option>Choose Semester</option>
                 <option value="1">1 sem</option>
                 <option value="2">2 sem</option>
@@ -68,7 +69,7 @@ function Note() {
 
              
              <Form.Group className="mb-3" controlId="file">
-            <Form.Control type="file" placeholder="" value={file} onChange={(e)=>{setFile(e.target.value)}} multiple />
+            <Form.Control type="file" name="pdfFile" value={file} onChange={(e)=>{setFile(e.target.value)}} multiple />
             </Form.Group>
           <button type="submit" onClick={Upload}>Upload Notes</button>
           <div>{response}</div>

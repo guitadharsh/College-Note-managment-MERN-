@@ -13,7 +13,7 @@ app.use(cors());
 
 
 app.use('/api/teachers', require('./routes/teacherRoutes'))
-app.use('api/students', require('./routes/studentRoutes'))
+app.use('/api/students', require('./routes/studentRoutes'))
 
 app.listen(PORT, ()=>{
     console.log("Server running on port " + PORT)

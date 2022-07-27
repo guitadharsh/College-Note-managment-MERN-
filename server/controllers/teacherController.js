@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs")
 const asyncHandler = require('express-async-handler')
 const teacherReg = require('../models/teacherModel')
 const notesUpload = require('../models/teacherUpload')
-
+const multer = require('multer')
 
 // @desc Register new user
 // @route POST /api/teachers
@@ -91,14 +91,29 @@ const getMe = asyncHandler(async (req, res) => {
     })
 })
 
-const noteUpload = asyncHandler ( async(req,res) => {
-    const { semester, subject, modules, file } = req.body
+// note uploading controlls
 
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads/')
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + file.originalname)
+    }
+  })
+  
+  var upload = multer({ storage: storage })
+  
+    const noteUpload = asyncHandler (async (req,res) => {
+    const { semester, subject, modules } = req.body
+   
+    const fileinfo = req.body.files
+        upload.array('pdffile', 5)
     const Notes = await notesUpload.create({
         semester,
         subject,
         modules,
-        file
+        fileinfo
     })
 
     if(Notes){

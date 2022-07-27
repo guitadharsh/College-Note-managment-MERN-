@@ -9,6 +9,9 @@ const noteDownload = asyncHandler( async (req,res) => {
         if(notes){
             res.status(200, notes)
         }
+        else{
+            res.status(404, error)
+        }
     })
 })
 
