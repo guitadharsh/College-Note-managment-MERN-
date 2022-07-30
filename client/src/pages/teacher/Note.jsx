@@ -1,39 +1,22 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import {useState} from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
 import './teacher.css';
 import Navbar from '../../components/Navbar';
+import { storageBucket } from "../../firebase"
+import { ref, uploadBytesResumable } from "firebase/storage" 
 
 function Note() {
 
 
-  const Upload = (e) => {
+  const upload = (e) => {
     e.preventDefault();
-    console.log(semester)
-    console.log(subject)
-    console.log(modules)
-    console.log(file)
-
-    axios.post("http://localhost:5000/api/teachers/noteUpload",{
-      semester,
-      subject,
-      modules,
-      file
-    }).then(()=>{
-      alert("Notes Uploaded Succesfully")
-      // console.log(response.data)
-      // setResponse(response)
-    
-    })
 
   }
   const [semester, setSemester] = useState('')
   const [subject, setSubject] = useState('')
   const [modules, setModules] = useState('')
   const [file, setFile] = useState('')
-  const [response, setResponse] = useState('')
   return (
     <>
     <Navbar />
@@ -45,7 +28,7 @@ function Note() {
         </div>  
 
         <div className="reg-right">
-            <Form>
+            <Form onSubmit = {upload}>
               <Form.Select enctype='multipart/form-data' aria-label="Default select example" className='mb-3' value={semester} onChange={(e)=>{setSemester(e.target.value)}}>
                 <option>Choose Semester</option>
                 <option value="1">1 sem</option>
@@ -71,8 +54,7 @@ function Note() {
              <Form.Group className="mb-3" controlId="file">
             <Form.Control type="file" name="pdfFile" value={file} onChange={(e)=>{setFile(e.target.value)}} multiple />
             </Form.Group>
-          <button type="submit" onClick={Upload}>Upload Notes</button>
-          <div>{response}</div>
+          <button type="submit">Upload Notes</button>
         </Form>
         </div>
     </div>

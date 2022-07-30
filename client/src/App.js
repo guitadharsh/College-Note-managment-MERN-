@@ -7,10 +7,12 @@ import TeacherRegister from './pages/teacher/TeacherRegister'
 import TeacherLogin from './pages/teacher/TeacherLogin'
 import Note from './pages/teacher/Note'
 import Download from './pages/student/Download'
+import { AuthContextProvider  } from './context/AuthContext';
 
 function App() {
   return (
      <BrowserRouter>
+     <AuthContextProvider>
        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/studentRegister" element={ <Register />} />
@@ -20,7 +22,8 @@ function App() {
         <Route path="/noteUpload" element ={< Note />} />
         <Route path="/noteDownload" element= {<Download />} />
       </Routes>
-     </BrowserRouter> 
+      </AuthContextProvider>
+   </BrowserRouter> 
   );
 }
 
